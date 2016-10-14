@@ -508,6 +508,12 @@ THUMBNAIL_SIZE_FOR_GRID = 192
 THUMBNAIL_IMAGE_SIZE_LIMIT = 20
 THUMBNAIL_IMAGE_ORIGINAL_SIZE_LIMIT = 256
 
+
+if os.path.exists(SEAHUB_DATA_ROOT):
+    EMPTY_OFFICE_TEMPLATE_ROOT = os.path.join(SEAHUB_DATA_ROOT, 'empty-office-template')
+else:
+    EMPTY_OFFICE_TEMPLATE_ROOT = os.path.join(PROJECT_ROOT, '../empty-office-template')
+
 #####################
 # Global AddressBook #
 #####################

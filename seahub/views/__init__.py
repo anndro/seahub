@@ -53,6 +53,10 @@ from seahub.settings import AVATAR_FILE_STORAGE, \
     ENABLE_SUB_LIBRARY, ENABLE_FOLDER_PERM
 
 LIBRARY_TEMPLATES = getattr(settings, 'LIBRARY_TEMPLATES', {})
+ENABLE_OFFICE_WEB_APP_EDIT = getattr(settings,
+        'ENABLE_OFFICE_WEB_APP_EDIT', False)
+OFFICE_WEB_APP_EDIT_FILE_EXTENSION = getattr(settings,
+        'OFFICE_WEB_APP_EDIT_FILE_EXTENSION', {})
 
 from constance import config
 
@@ -800,6 +804,12 @@ def libraries(request):
             'enable_resumable_fileupload': settings.ENABLE_RESUMABLE_FILEUPLOAD,
             'max_number_of_files_for_fileupload': settings.MAX_NUMBER_OF_FILES_FOR_FILEUPLOAD,
             'enable_thumbnail': settings.ENABLE_THUMBNAIL,
+
+            'enable_office_web_app_edit': ENABLE_OFFICE_WEB_APP_EDIT,
+            'enable_xlsx_edit': True if 'xlsx' in OFFICE_WEB_APP_EDIT_FILE_EXTENSION else False,
+            'enable_pptx_edit': True if 'pptx' in OFFICE_WEB_APP_EDIT_FILE_EXTENSION else False,
+            'enable_docx_edit': True if 'docx' in OFFICE_WEB_APP_EDIT_FILE_EXTENSION else False,
+
             'thumbnail_default_size': settings.THUMBNAIL_DEFAULT_SIZE,
             'thumbnail_size_for_grid': settings.THUMBNAIL_SIZE_FOR_GRID,
             'enable_encrypted_library': config.ENABLE_ENCRYPTED_LIBRARY,

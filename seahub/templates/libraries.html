@@ -257,6 +257,12 @@ app["pageOptions"] = {
     enable_upload_folder: {% if enable_upload_folder %} true {% else %} false {% endif %},
     enable_resumable_fileupload: {% if enable_resumable_fileupload %} true {% else %} false {% endif %},
     max_number_of_files_for_fileupload: {{ max_number_of_files_for_fileupload }},
+
+    enable_office_web_app_edit: {% if enable_office_web_app_edit %} true {% else %} false {% endif %},
+    enable_xlsx_edit: {% if enable_xlsx_edit %} true {% else %} false {% endif %},
+    enable_pptx_edit: {% if enable_pptx_edit %} true {% else %} false {% endif %},
+    enable_docx_edit: {% if enable_docx_edit %} true {% else %} false {% endif %},
+
     enable_thumbnail: {% if enable_thumbnail %} true {% else %} false {% endif %},
     thumbnail_default_size: {{ thumbnail_default_size }},
     thumbnail_size_for_grid: {{ thumbnail_size_for_grid }},

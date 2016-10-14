@@ -22,6 +22,19 @@
             {% else %}
             <a href="http://www.seafile.com/en/help/markdown/" target="_blank">{% trans 'Details' %}</a>
             {% endif %}
+
+            {% if enable_office_web_app_edit %}
+            {% if enable_xlsx_edit %}
+            <br /><button type="button" class="set-file-type" data-filetype="xlsx" title="{% trans "Click to choose" %}">xlsx</button> <span>{% trans "Spreadsheet format." %}</span>
+            {% endif %}
+            {% if enable_pptx_edit %}
+            <br /><button type="button" class="set-file-type" data-filetype="pptx" title="{% trans "Click to choose" %}">pptx</button> <span>{% trans "PowerPoint format." %}</span>
+            {% endif %}
+            {% if enable_docx_edit %}
+            <br /><button type="button" class="set-file-type" data-filetype="docx" title="{% trans "Click to choose" %}">docx</button> <span>{% trans "Document format." %}</span>
+            {% endif %}
+            {% endif %}
+
         </div>
         <label for="file-name">{% trans "File Name" %}</label><br/>
         <input type="text" name="name" value="" class="input" maxlength="{{max_file_name}}" id="file-name" /><br />

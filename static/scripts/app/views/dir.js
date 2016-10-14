@@ -580,6 +580,25 @@ define([
                             'last_update': gettext("Just now")
                         }, {silent: true});
                         dirView.addNewFile(new_dirent);
+
+                        if (app.pageOptions.enable_office_web_app_edit) {
+                            var new_file_name = data['obj_name'];
+
+                            console.log(new_file_name)
+
+                            if ((new_file_name.endsWith('.xlsx') && app.pageOptions.enable_xlsx_edit) ||
+                                    (new_file_name.endsWith('.pptx') && app.pageOptions.enable_pptx_edit) ||
+                                        (new_file_name.endsWith('.docx') && app.pageOptions.enable_docx_edit)) {
+
+                                var new_file_href;
+                                if (data['parent_dir'] == '/') {
+                                    new_file_href = '/lib/' + data['repo_id'] + '/file/' + data['obj_name'];
+                                } else {
+                                    new_file_href = '/lib/' + data['repo_id'] + '/file' + data['parent_dir'] + '/' + data['obj_name'];
+                                }
+                                window.open(new_file_href, '_blank');
+                            }
+                        }
                     };
 
                     Common.ajaxPost({
